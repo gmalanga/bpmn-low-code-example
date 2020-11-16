@@ -4,3 +4,5 @@ spring-boot-starter/.settings
 spring-boot-starter/target
 camunda-spring-boot-starter/.settings
 camunda-spring-boot-starter/target
+flowable-spring-boot-starter/.settings
+flowable-spring-boot-starter/target
