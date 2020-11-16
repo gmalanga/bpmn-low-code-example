@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+  flowable:
+    image: flowable/flowable-ui:6.6.0
+    hostname: flowalbe
+    ports:
+      - "8080:8080"
