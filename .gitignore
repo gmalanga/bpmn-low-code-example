@@ -1,0 +1,6 @@
+.project
+spring-boot-starter/.settings
+.classpath
+spring-boot-starter/target
+camunda-spring-boot-starter/.settings
+camunda-spring-boot-starter/target
