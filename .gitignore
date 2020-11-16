@@ -1,0 +1,4 @@
+.project
+spring-boot-starter/.settings
+.classpath
+spring-boot-starter/target
