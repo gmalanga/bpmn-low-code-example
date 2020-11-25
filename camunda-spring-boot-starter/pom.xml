@@ -27,19 +27,29 @@
   
   <dependencies>
     <dependency>
-      <groupId>org.camunda.bpm.springboot</groupId>
-      <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-      <version>${camunda.spring-boot.version}</version>
+      	<groupId>org.camunda.bpm.springboot</groupId>
+      	<artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+      	<version>${camunda.spring-boot.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
+      	<groupId>com.h2database</groupId>
+      	<artifactId>h2</artifactId>
+    </dependency>
+    <!-- required to use H2 as a file based database  (otherwise it's in-memory) -->
+    <dependency>
+      	<groupId>org.springframework.boot</groupId>
+      	<artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>2.2.3</version>
+      	<groupId>com.sun.xml.bind</groupId>
+      	<artifactId>jaxb-impl</artifactId>
+      	<version>2.2.3</version>
     </dependency>
+    <dependency>
+	    <groupId>org.springdoc</groupId>
+	    <artifactId>springdoc-openapi-ui</artifactId>
+	    <version>1.2.32</version>
+	</dependency>
   </dependencies>
 
    <build>

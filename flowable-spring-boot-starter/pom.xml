@@ -14,7 +14,7 @@
 
     <properties>
         <flowable.version>6.6.0</flowable.version>
-        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <h2.version>1.4.200</h2.version>
     </properties>
 
@@ -30,6 +30,12 @@
             <version>${h2.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- required to use H2 as a file based database  (otherwise it's in-memory) -->
+	    <dependency>
+	      	<groupId>org.springframework.boot</groupId>
+	      	<artifactId>spring-boot-starter-jdbc</artifactId>
+	      	<version>${spring-boot.version}</version>
+	    </dependency>
         <dependency>
 		    <groupId>org.flowable</groupId>
 		    <artifactId>flowable-spring-boot-starter</artifactId>
