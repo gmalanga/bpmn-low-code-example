@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="sample-process" name="Sample Process" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <serviceTask id="http-01" name="Simple Camunda REST" flowable:parallelInSameTransaction="true" flowable:type="http">
+      <extensionElements>
+        <flowable:field name="requestMethod">
+          <flowable:string><![CDATA[GET]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="requestUrl">
+          <flowable:string><![CDATA[http://localhost:9090/api/test]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="responseVariableName">
+          <flowable:string><![CDATA[response]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A" sourceRef="startEvent1" targetRef="http-01"></sequenceFlow>
+    <userTask id="sid-62BE4AB8-7174-46FF-AA5A-4EAA98AAB543" name="Check result" flowable:formFieldValidation="true"></userTask>
+    <sequenceFlow id="sid-622409B2-66B6-4357-B022-5270FC9CEECF" sourceRef="http-01" targetRef="sid-62BE4AB8-7174-46FF-AA5A-4EAA98AAB543"></sequenceFlow>
+    <endEvent id="sid-78832764-15E9-4765-A592-1EBDF715B7F4"></endEvent>
+    <sequenceFlow id="sid-5ECDCA20-078C-478B-9C0A-3C78D812DB0F" sourceRef="sid-62BE4AB8-7174-46FF-AA5A-4EAA98AAB543" targetRef="sid-78832764-15E9-4765-A592-1EBDF715B7F4"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_sample-process">
+    <bpmndi:BPMNPlane bpmnElement="sample-process" id="BPMNPlane_sample-process">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="http-01" id="BPMNShape_http-01">
+        <omgdc:Bounds height="80.0" width="100.0" x="204.5" y="185.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-62BE4AB8-7174-46FF-AA5A-4EAA98AAB543" id="BPMNShape_sid-62BE4AB8-7174-46FF-AA5A-4EAA98AAB543">
+        <omgdc:Bounds height="80.0" width="100.0" x="349.5" y="185.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-78832764-15E9-4765-A592-1EBDF715B7F4" id="BPMNShape_sid-78832764-15E9-4765-A592-1EBDF715B7F4">
+        <omgdc:Bounds height="28.0" width="28.0" x="494.5" y="211.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-5ECDCA20-078C-478B-9C0A-3C78D812DB0F" id="BPMNEdge_sid-5ECDCA20-078C-478B-9C0A-3C78D812DB0F">
+        <omgdi:waypoint x="449.45000000000005" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="494.5" y="225.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-622409B2-66B6-4357-B022-5270FC9CEECF" id="BPMNEdge_sid-622409B2-66B6-4357-B022-5270FC9CEECF">
+        <omgdi:waypoint x="304.4499999999907" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="349.5" y="225.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A" id="BPMNEdge_sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A">
+        <omgdi:waypoint x="129.94999906090126" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="204.5" y="225.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

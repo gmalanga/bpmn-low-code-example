@@ -1,0 +1,2882 @@
+{
+	"info": {
+		"_postman_id": "a735d2b9-522d-404e-a205-1c193011ee70",
+		"name": "BPMN Low Code Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Flowable - Get list of deployments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d20d6c1d-d08e-4c60-bdc1-4c55666537e7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"// Array size equals to one",
+							"pm.test(\"Array size equals to one\", function(){",
+							"    pm.expect(response.size).eq(1);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{flowableBaseUrl}}/repository/deployments",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"repository",
+						"deployments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates a parameter was passed in the wrong format or that delegationState has an invalid value (other than pending and resolved). The status-message contains additional information.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates request was successful and the tasks are returned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  }\n ],\n \"total\": \"<long>\",\n \"start\": \"<integer>\",\n \"sort\": \"<string>\",\n \"order\": \"<string>\",\n \"size\": \"<integer>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Flowable - Get list of process definitions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d211080-44cf-4313-9dd6-93262e3735b4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"// Array size equals to one",
+							"pm.test(\"Array size equals to one\", function(){",
+							"    pm.expect(response.size).eq(1);",
+							"})",
+							"",
+							"// Check process id",
+							"pm.test(\"Check process ID\", function(){",
+							"    pm.expect(response.data[0].id).not.eq(undefined);",
+							"})",
+							"",
+							"pm.environment.set(\"processDefinitionId\", response.data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{flowableBaseUrl}}/repository/process-definitions",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"repository",
+						"process-definitions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates a parameter was passed in the wrong format or that delegationState has an invalid value (other than pending and resolved). The status-message contains additional information.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates request was successful and the tasks are returned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  }\n ],\n \"total\": \"<long>\",\n \"start\": \"<integer>\",\n \"sort\": \"<string>\",\n \"order\": \"<string>\",\n \"size\": \"<integer>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Flowable - Start a process instance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b840724-a03c-45b3-a006-8018cc6e856b",
+						"exec": [
+							"var response = pm.response.json();",
+							"",
+							"// Status created",
+							"pm.test(\"Status code is 201\", function() {",
+							"    pm.response.to.have.status(201);",
+							"})",
+							"",
+							"// Check Process Instance ID for not null",
+							"pm.test(\"Check Process instance ID\", function() {",
+							"    pm.expect(response.id).not.eq(undefined);",
+							"})",
+							"",
+							"// Set process Instance ID",
+							"pm.processInstanceId = response.id;",
+							"",
+							"// Set process instance id",
+							"pm.environment.set(\"processInstanceId\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processDefinitionId\": \"{{processDefinitionId}}\"\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "{{flowableBaseUrl}}/runtime/process-instances",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"runtime",
+						"process-instances"
+					]
+				},
+				"description": "Note that also a *transientVariables* property is accepted as part of this json, that follows the same structure as the *variables* property.\n\nOnly one of *processDefinitionId*, *processDefinitionKey* or *message* can be used in the request body. \n\nParameters *businessKey*, *variables* and *tenantId* are optional.\n\n If tenantId is omitted, the default tenant will be used. More information about the variable format can be found in the REST variables section.\n\n Note that the variable-scope that is supplied is ignored, process-variables are always local.\n\n"
+			},
+			"response": [
+				{
+					"name": "Indicates either the process-definition was not found (based on id or key), no process is started by sending the given message or an invalid variable has been passed. Status description contains additional information about the error.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processDefinitionId\": \"oneTaskProcess:1:158\",\n    \"processDefinitionKey\": \"oneTaskProcess\",\n    \"message\": \"newOrderMessage\",\n    \"name\": \"myProcessInstanceName\",\n    \"businessKey\": \"myBusinessKey\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"startFormVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"outcome\": \"<string>\",\n    \"tenantId\": \"tenant1\",\n    \"overrideDefinitionTenantId\": \"overrideTenant1\",\n    \"returnVariables\": \"<boolean>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/process-instances",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"process-instances"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processDefinitionId\": \"oneTaskProcess:1:158\",\n    \"processDefinitionKey\": \"oneTaskProcess\",\n    \"message\": \"newOrderMessage\",\n    \"name\": \"myProcessInstanceName\",\n    \"businessKey\": \"myBusinessKey\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"startFormVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"outcome\": \"<string>\",\n    \"tenantId\": \"tenant1\",\n    \"overrideDefinitionTenantId\": \"overrideTenant1\",\n    \"returnVariables\": \"<boolean>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/process-instances",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"process-instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"id\": \"187\",\n \"url\": \"http://localhost:8182/repository/process-definitions/processOne%3A1%3A4\",\n \"name\": \"myProcessInstanceName\",\n \"businessKey\": \"myBusinessKey\",\n \"suspended\": \"<boolean>\",\n \"ended\": \"<boolean>\",\n \"processDefinitionId\": \"oneTaskProcess:1:158\",\n \"processDefinitionUrl\": \"http://localhost:8182/repository/process-definitions/processOne%3A1%3A4\",\n \"processDefinitionName\": \"A process definition name\",\n \"processDefinitionDescription\": \"A process definition description\",\n \"activityId\": \"processTask\",\n \"startUserId\": \"johnDoe\",\n \"startTime\": \"2018-04-17T10:17:43.902+0000\",\n \"variables\": [\n  {\n   \"name\": \"myVariable\",\n   \"type\": \"string\",\n   \"value\": \"test\",\n   \"valueUrl\": \"http://....\",\n   \"scope\": \"<string>\"\n  },\n  {\n   \"name\": \"myVariable\",\n   \"type\": \"string\",\n   \"value\": \"test\",\n   \"valueUrl\": \"http://....\",\n   \"scope\": \"<string>\"\n  }\n ],\n \"callbackId\": \"3\",\n \"callbackType\": \"cmmn\",\n \"referenceId\": \"123\",\n \"referenceType\": \"event-to-bpmn-2.0-process\",\n \"tenantId\": \"someTenantId\",\n \"completed\": \"<boolean>\"\n}"
+				},
+				{
+					"name": "Indicates the process instance was created.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processDefinitionId\": \"oneTaskProcess:1:158\",\n    \"processDefinitionKey\": \"oneTaskProcess\",\n    \"message\": \"newOrderMessage\",\n    \"name\": \"myProcessInstanceName\",\n    \"businessKey\": \"myBusinessKey\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"startFormVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"outcome\": \"<string>\",\n    \"tenantId\": \"tenant1\",\n    \"overrideDefinitionTenantId\": \"overrideTenant1\",\n    \"returnVariables\": \"<boolean>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/process-instances",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"process-instances"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Flowable - Get List of tasks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ed6bd3a-df41-40bd-ae89-62c27047c528",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"// Array size equals to one",
+							"pm.test(\"Array size equals to one\", function(){",
+							"    pm.expect(response.size).eq(1);",
+							"})",
+							"",
+							"// Check task id",
+							"pm.test(\"Check task ID\", function(){",
+							"    pm.expect(response.data[0].id).not.eq(undefined);",
+							"})",
+							"",
+							"pm.environment.set(\"taskId\", response.data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{flowableBaseUrl}}/runtime/tasks?processInstanceId={{processInstanceId}}",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"runtime",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "processInstanceId",
+							"value": "{{processInstanceId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates a parameter was passed in the wrong format or that delegationState has an invalid value (other than pending and resolved). The status-message contains additional information.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates request was successful and the tasks are returned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  }\n ],\n \"total\": \"<long>\",\n \"start\": \"<integer>\",\n \"sort\": \"<string>\",\n \"order\": \"<string>\",\n \"size\": \"<integer>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Flowable - Get all variables for a task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "080745a0-b87a-4895-98de-3d5998e2a60e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"// Check task id",
+							"pm.test(\"Check task ID\", function(){",
+							"    pm.expect(response[0].name).not.eq(undefined);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{flowableBaseUrl}}/runtime/tasks/{{taskId}}/variables",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"runtime",
+						"tasks",
+						"{{taskId}}",
+						"variables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates a parameter was passed in the wrong format or that delegationState has an invalid value (other than pending and resolved). The status-message contains additional information.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates request was successful and the tasks are returned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  }\n ],\n \"total\": \"<long>\",\n \"start\": \"<integer>\",\n \"sort\": \"<string>\",\n \"order\": \"<string>\",\n \"size\": \"<integer>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Flowable - Tasks actions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fe1e288-515c-4467-a5d9-15d1bf948730",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "adb513e2-8c5d-41a1-9c1f-7900d5ba686b",
+						"exec": [
+							"var variables = pm.iterationData.get(\"variables\");",
+							"var transientVariables = pm.iterationData.get(\"transientVariables\");",
+							"",
+							"console.log(variables);",
+							"console.log(transientVariables);",
+							"",
+							"var strVariables = \"\"",
+							"var strTransientVariables = \"\"",
+							"",
+							"console.log(strVariables);",
+							"console.log(strTransientVariables);",
+							"",
+							"pm.environment.set(\"envVariables\", strVariables);",
+							"pm.environment.set(\"envTransientVariables\", strTransientVariables);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"action\": \"complete\",\n    \"variables\": [{{envVariables}}],\n    \"transientVariables\": [{{envTransientVariables}}]\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "{{flowableBaseUrl}}/runtime/tasks/:taskId",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"runtime",
+						"tasks",
+						":taskId"
+					],
+					"variable": [
+						{
+							"key": "taskId",
+							"value": "{{taskId}}",
+							"description": "(Required) "
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates the requested task was not found.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"complete\",\n    \"assignee\": \"userWhoClaims/userToDelegateTo\",\n    \"formDefinitionId\": \"12345\",\n    \"outcome\": \"accepted/rejected\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks/:taskId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates the action was executed.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"complete\",\n    \"assignee\": \"userWhoClaims/userToDelegateTo\",\n    \"formDefinitionId\": \"12345\",\n    \"outcome\": \"accepted/rejected\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks/:taskId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates the action cannot be performed due to a conflict. Either the task was updates simultaneously or the task was claimed by another user, in case of the claim action.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"complete\",\n    \"assignee\": \"userWhoClaims/userToDelegateTo\",\n    \"formDefinitionId\": \"12345\",\n    \"outcome\": \"accepted/rejected\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks/:taskId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId"
+								}
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "When the body contains an invalid value or when the assignee is missing when the action requires it.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"complete\",\n    \"assignee\": \"userWhoClaims/userToDelegateTo\",\n    \"formDefinitionId\": \"12345\",\n    \"outcome\": \"accepted/rejected\",\n    \"variables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ],\n    \"transientVariables\": [\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        },\n        {\n            \"name\": \"myVariable\",\n            \"type\": \"string\",\n            \"value\": \"test\",\n            \"valueUrl\": \"http://....\",\n            \"scope\": \"<string>\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks/:taskId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Flowable - Check process complete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "080367c0-6fc0-457a-9a55-b1030d268e87",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = pm.response.json();",
+							"",
+							"// Array size equals to zero",
+							"pm.test(\"Array size equals to one\", function(){",
+							"    pm.expect(response.size).eq(0);",
+							"})",
+							"",
+							"// Check task id",
+							"pm.test(\"Check task ID\", function(){",
+							"    pm.expect(response.data[0]).eq(undefined);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{flowableBaseUrl}}/runtime/tasks?processInstanceId={{processInstanceId}}",
+					"host": [
+						"{{flowableBaseUrl}}"
+					],
+					"path": [
+						"runtime",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "processInstanceId",
+							"value": "{{processInstanceId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Indicates a parameter was passed in the wrong format or that delegationState has an invalid value (other than pending and resolved). The status-message contains additional information.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Indicates request was successful and the tasks are returned",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/runtime/tasks?name=<string>&nameLike=<string>&description=<string>&priority=<string>&minimumPriority=<string>&maximumPriority=<string>&assignee=<string>&assigneeLike=<string>&owner=<string>&ownerLike=<string>&unassigned=<string>&delegationState=<string>&candidateUser=<string>&candidateGroup=<string>&candidateGroups=<string>&involvedUser=<string>&taskDefinitionKey=<string>&taskDefinitionKeyLike=<string>&taskDefinitionKeys=<string>&processInstanceId=<string>&processInstanceIdWithChildren=<string>&processInstanceBusinessKey=<string>&processInstanceBusinessKeyLike=<string>&processDefinitionId=<string>&processDefinitionKey=<string>&processDefinitionKeyLike=<string>&processDefinitionName=<string>&processDefinitionNameLike=<string>&executionId=<string>&createdOn=<dateTime>&createdBefore=<dateTime>&createdAfter=<dateTime>&dueOn=<dateTime>&dueBefore=<dateTime>&dueAfter=<dateTime>&withoutDueDate=<boolean>&excludeSubTasks=<boolean>&active=<boolean>&includeTaskLocalVariables=<boolean>&includeProcessVariables=<boolean>&scopeDefinitionId=<string>&scopeId=<string>&scopeType=<string>&tenantId=<string>&tenantIdLike=<string>&withoutTenantId=<boolean>&candidateOrAssigned=<string>&category=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"runtime",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>"
+								},
+								{
+									"key": "nameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "description",
+									"value": "<string>"
+								},
+								{
+									"key": "priority",
+									"value": "<string>"
+								},
+								{
+									"key": "minimumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "maximumPriority",
+									"value": "<string>"
+								},
+								{
+									"key": "assignee",
+									"value": "<string>"
+								},
+								{
+									"key": "assigneeLike",
+									"value": "<string>"
+								},
+								{
+									"key": "owner",
+									"value": "<string>"
+								},
+								{
+									"key": "ownerLike",
+									"value": "<string>"
+								},
+								{
+									"key": "unassigned",
+									"value": "<string>"
+								},
+								{
+									"key": "delegationState",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateUser",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroup",
+									"value": "<string>"
+								},
+								{
+									"key": "candidateGroups",
+									"value": "<string>"
+								},
+								{
+									"key": "involvedUser",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "taskDefinitionKeys",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceId",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceIdWithChildren",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processInstanceBusinessKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKey",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionKeyLike",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionName",
+									"value": "<string>"
+								},
+								{
+									"key": "processDefinitionNameLike",
+									"value": "<string>"
+								},
+								{
+									"key": "executionId",
+									"value": "<string>"
+								},
+								{
+									"key": "createdOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "createdAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueOn",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueBefore",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "dueAfter",
+									"value": "<dateTime>"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "<boolean>"
+								},
+								{
+									"key": "excludeSubTasks",
+									"value": "<boolean>"
+								},
+								{
+									"key": "active",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeTaskLocalVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "includeProcessVariables",
+									"value": "<boolean>"
+								},
+								{
+									"key": "scopeDefinitionId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeId",
+									"value": "<string>"
+								},
+								{
+									"key": "scopeType",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantId",
+									"value": "<string>"
+								},
+								{
+									"key": "tenantIdLike",
+									"value": "<string>"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "<boolean>"
+								},
+								{
+									"key": "candidateOrAssigned",
+									"value": "<string>"
+								},
+								{
+									"key": "category",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"data\": [\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"id\": \"8\",\n   \"url\": \"http://localhost:8182/runtime/tasks/8\",\n   \"owner\": \"owner\",\n   \"assignee\": \"kermit\",\n   \"delegationState\": \"pending\",\n   \"name\": \"My task\",\n   \"description\": \"Task description\",\n   \"createTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"dueDate\": \"2018-04-17T10:17:43.902+0000\",\n   \"priority\": 50,\n   \"suspended\": \"<boolean>\",\n   \"claimTime\": \"2018-04-17T10:17:43.902+0000\",\n   \"taskDefinitionKey\": \"theTask\",\n   \"scopeDefinitionId\": \"12\",\n   \"scopeId\": \"14\",\n   \"subScopeId\": \"15\",\n   \"scopeType\": \"cmmn\",\n   \"propagatedStageInstanceId\": \"16\",\n   \"tenantId\": \"someTenantId\",\n   \"category\": \"ExampleCategory\",\n   \"formKey\": \"<string>\",\n   \"parentTaskId\": \"null\",\n   \"parentTaskUrl\": \"null\",\n   \"executionId\": \"5\",\n   \"executionUrl\": \"http://localhost:8182/runtime/executions/5\",\n   \"processInstanceId\": \"5\",\n   \"processInstanceUrl\": \"http://localhost:8182/runtime/process-instances/5\",\n   \"processDefinitionId\": \"oneTaskProcess%3A1%3A4\",\n   \"processDefinitionUrl\": \"http://localhost:8182/runtime/process-definitions/oneTaskProcess%3A1%3A4\",\n   \"variables\": [\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    },\n    {\n     \"name\": \"myVariable\",\n     \"type\": \"string\",\n     \"value\": \"test\",\n     \"valueUrl\": \"http://....\",\n     \"scope\": \"<string>\"\n    }\n   ]\n  }\n ],\n \"total\": \"<long>\",\n \"start\": \"<integer>\",\n \"sort\": \"<string>\",\n \"order\": \"<string>\",\n \"size\": \"<integer>\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f87ea21f-23ad-4f3e-af35-d55b568d25df",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2dd295d5-47e5-4b27-a011-66519901b7fc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "595276ba-8b4e-4d41-bf98-5266679e4e1f",
+			"key": "flowableBaseUrl",
+			"value": "http://localhost:9999/process-api"
+		},
+		{
+			"id": "24f46920-4a7a-4b9a-9e6a-a6ceeae095d5",
+			"key": "camundaBaseUrl",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -16,6 +16,8 @@
         <flowable.version>6.6.0</flowable.version>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <h2.version>1.4.200</h2.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -52,6 +54,11 @@
             <version>${flowable.version}</version>
         </dependency>
         <dependency>
+		    <groupId>org.flowable</groupId>
+		    <artifactId>flowable-http</artifactId>
+		    <version>${flowable.version}</version>
+		</dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot.version}</version>
@@ -70,6 +77,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
             <plugin>
 			    <artifactId>maven-war-plugin</artifactId>
