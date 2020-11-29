@@ -60,4 +60,4 @@ Observe the log entry similar to this:
 
 `Found deployed process: ProcessDefinitionEntity[Sample:1:215245a1-a1e2-11e7-8069-0a0027000006]`
 
-Then go to http://localhost:8080/ in your browser.
+Then go to http://localhost:8080/ in your browser. Login with `demo:demo`.

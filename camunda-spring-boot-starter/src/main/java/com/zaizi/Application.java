@@ -18,9 +18,9 @@ import org.springframework.util.Assert;
 @EnableProcessApplication
 public class Application {
 
-  public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
-  }
+	public static void main(String... args) {
+	    SpringApplication.run(Application.class, args);
+	  }
 
   private final Logger logger = LoggerFactory.getLogger(Application.class);
 
