@@ -3209,7 +3209,7 @@
 							"",
 							"// Check id",
 							"pm.test(\"Check processIntance ID\", function(){",
-							"    pm.expect(response.id).not.eq(undefined);",
+							"    pm.expect(response.data[0].id).not.eq(undefined);",
 							"})",
 							""
 						],
@@ -3694,7 +3694,7 @@
 							"",
 							"// Check id",
 							"pm.test(\"Check processIntance ID\", function(){",
-							"    pm.expect(response.id).not.eq(undefined);",
+							"    pm.expect(response.data[0].id).not.eq(undefined);",
 							"})",
 							""
 						],
@@ -4188,12 +4188,12 @@
 	],
 	"variable": [
 		{
-			"id": "f1e0fdbc-3ad5-465e-a426-4264a2931863",
+			"id": "0686769c-5a27-46a1-b40d-ee96a880f707",
 			"key": "flowableBaseUrl",
 			"value": "http://localhost:9999/process-api"
 		},
 		{
-			"id": "c0b4ae87-0125-48c3-8d18-d4761e1467f8",
+			"id": "7b2fa1a7-3f6e-467e-9e96-d2216163e9be",
 			"key": "camundaBaseUrl",
 			"value": ""
 		}
