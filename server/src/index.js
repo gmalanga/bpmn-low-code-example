@@ -9,6 +9,7 @@ const { createStore } = require('./utils');
 
 const LaunchAPI = require('./datasources/launch');
 const UserAPI = require('./datasources/user');
+const FlowableAPI = require('./datasources/flowable');
 
 const internalEngineDemo = require('./engine-demo');
 
@@ -19,6 +20,7 @@ const store = createStore();
 const dataSources = () => ({
   launchAPI: new LaunchAPI(),
   userAPI: new UserAPI({ store }),
+  flowableAPI: new FlowableAPI(),
 });
 
 // the function that sets up the global context for each resolver, using the req
@@ -71,6 +73,7 @@ module.exports = {
   ApolloServer,
   LaunchAPI,
   UserAPI,
+  FlowableAPI,
   store,
   server,
 };

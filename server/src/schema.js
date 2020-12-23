@@ -14,6 +14,8 @@ const typeDefs = gql`
     ): LaunchConnection!
     launch(id: ID!): Launch
     me: User
+    processDefinitions: [ProcessDefinition]
+    startProcess(id: ID!): ProcessInstance
   }
 
   type Mutation {
@@ -76,6 +78,20 @@ const typeDefs = gql`
   enum PatchSize {
     SMALL
     LARGE
+  }
+
+  type ProcessDefinition {
+    id: ID
+    url: String
+    key: String
+    version: Int
+    name: String
+  }
+
+  type ProcessInstance {
+    id: ID
+    url: String
+    startTime: String
   }
 `;
 

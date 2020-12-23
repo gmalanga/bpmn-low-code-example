@@ -28,6 +28,10 @@ module.exports = {
       dataSources.launchAPI.getLaunchById({ launchId: id }),
     me: async (_, __, { dataSources }) =>
       dataSources.userAPI.findOrCreateUser(),
+    processDefinitions: (_, __, { dataSources }) =>
+      dataSources.flowableAPI.getProcessDefinitions(),
+    startProcess: (_, { id }, { dataSources }) =>
+      dataSources.flowableAPI.startProcess({ processDefinitionId: id }),
   },
   Mutation: {
     bookTrips: async (_, { launchIds }, { dataSources }) => {
