@@ -32,6 +32,8 @@ module.exports = {
       dataSources.flowableAPI.getProcessDefinitions(),
     startProcess: (_, { id }, { dataSources }) =>
       dataSources.flowableAPI.startProcess({ processDefinitionId: id }),
+    getBoardingPass: (_, __, { dataSources } ) =>
+      dataSources.flowableAPI.getBoardingPass(),
   },
   Mutation: {
     bookTrips: async (_, { launchIds }, { dataSources }) => {

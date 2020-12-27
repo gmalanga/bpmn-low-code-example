@@ -16,6 +16,7 @@ const typeDefs = gql`
     me: User
     processDefinitions: [ProcessDefinition]
     startProcess(id: ID!): ProcessInstance
+    getBoardingPass: BoardingPass
   }
 
   type Mutation {
@@ -92,6 +93,11 @@ const typeDefs = gql`
     id: ID
     url: String
     startTime: String
+  }
+
+  type BoardingPass {
+    status: String!
+    message: String
   }
 `;
 
