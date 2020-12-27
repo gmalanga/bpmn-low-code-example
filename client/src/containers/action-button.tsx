@@ -62,12 +62,6 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
     }
   );
 
-  const getBoardingPass = () => {
-    return (
-      <div>Hello</div>
-    );
-  };
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>An error occurred</p>;
 
@@ -83,7 +77,7 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
       </div><br />
       <div>
         <Button
-          onClick={() => getBoardingPass}
+          onClick={() => { }}
           data-testid={'action-button'}
         >
           Get Boarding Pass
