@@ -9,3 +9,4 @@ flowable-spring-boot-starter/target
 camunda-db.mv.db
 flowavble-db.mv.db
 flowavble-db.trace.db
+server/node_modules
