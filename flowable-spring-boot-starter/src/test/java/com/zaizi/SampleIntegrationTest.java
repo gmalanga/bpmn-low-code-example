@@ -31,9 +31,9 @@ public class SampleIntegrationTest {
         
     	Map<String, Object> variables = new HashMap<String, Object>();
         
-        String processDefinitionId = runtimeService.startProcessInstanceByKey("sample-process-2", variables).getProcessDefinitionId();
+        String processInstanceId = runtimeService.startProcessInstanceByKey("sample-process-2", variables).getProcessInstanceId();
         
-        Task task = taskService.createTaskQuery().processDefinitionId(processDefinitionId).singleResult();
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
         
         assertEquals("Resolve failure", task.getName());
 
@@ -41,7 +41,7 @@ public class SampleIntegrationTest {
   
         taskService.complete(task.getId(), variables);
       
-        assertEquals(0, runtimeService.createProcessInstanceQuery().processDefinitionId(processDefinitionId).count());
+        assertEquals(0, runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).count());
     }
 	
 	@Test
@@ -50,9 +50,9 @@ public class SampleIntegrationTest {
         
     	Map<String, Object> variables = new HashMap<String, Object>();
         
-        String processDefinitionId = runtimeService.startProcessInstanceByKey("sample-process-2", variables).getProcessDefinitionId();
+        String processInstanceId = runtimeService.startProcessInstanceByKey("sample-process-2", variables).getProcessInstanceId();
         
-        Task task = taskService.createTaskQuery().processDefinitionId(processDefinitionId).singleResult();
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
         
         assertEquals("Resolve failure", task.getName());
 
@@ -60,12 +60,12 @@ public class SampleIntegrationTest {
   
         taskService.complete(task.getId(), variables);
         
-        task = taskService.createTaskQuery().processDefinitionId(processDefinitionId).singleResult();
+        task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
         
         assertEquals("Check result", task.getName());
         
         taskService.complete(task.getId(), null);
       
-        assertEquals(0, runtimeService.createProcessInstanceQuery().processDefinitionId(processDefinitionId).count());
+        assertEquals(0, runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).count());
     }
 }
