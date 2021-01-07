@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   gql,
   useMutation,
@@ -29,6 +29,9 @@ export const CANCEL_TRIP = gql`
 interface ActionButtonProps extends Partial<LaunchDetailTypes.LaunchDetails_launch> {}
 
 const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
+
+  const [boardingPass, setBoardingPass] = useState('');
+
   const [mutate, { loading, error }] = useMutation(
     CANCEL_TRIP,
     {
@@ -65,6 +68,12 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>An error occurred</p>;
 
+  function getBoardingPass() {
+    fetch('http://localhost:9999/api/v1/getBoardingPass')
+      .then(response => response.json())
+      .then(data => setBoardingPass(data.url))
+  };
+
   return (
     <div>
       <div>
@@ -77,11 +86,14 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
       </div><br />
       <div>
         <Button
-          onClick={() => { }}
+          onClick={() => { getBoardingPass() }}
           data-testid={'action-button'}
         >
           Get Boarding Pass
         </Button>
+        {boardingPass !== '' && 
+          <div><br /><img src={boardingPass} alt={boardingPass} /></div>
+        }
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ class FlowableAPI extends RESTDataSource {
     boardingPassReducer(boardingPass) {
         return {
             status: boardingPass.status,
-            message: boardingPass.message
+            message: boardingPass.url
         }
     }
 
@@ -40,7 +40,7 @@ class FlowableAPI extends RESTDataSource {
 
     async startProcess({ processDefinitionId }) {
         const input = {"processDefinitionId": "" + processDefinitionId +""};
-        const response = await this.post('process-api//runtime/process-instances', JSON.stringify(input),
+        const response = await this.post('process-api/runtime/process-instances', JSON.stringify(input),
         {
             headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ class FlowableAPI extends RESTDataSource {
     }
 
     async getBoardingPass() {
-        const response = await this.get('api/getBoardingPass');
+        const response = await this.get('api/v2/getBoardingPass');
         console.log(response);
         // transform the raw launches to a more friendly
         return this.boardingPassReducer(response);
