@@ -3,6 +3,7 @@ import {
   gql,
   useMutation,
   useReactiveVar,
+  useQuery,
   Reference
 } from '@apollo/client';
 
@@ -10,6 +11,7 @@ import { GET_LAUNCH_DETAILS } from '../pages/launch';
 import Button from '../components/button';
 import { cartItemsVar } from '../cache';
 import * as LaunchDetailTypes from '../pages/__generated__/LaunchDetails';
+import * as BoardingPassTypes from '../pages/__generated__/GetBoardingPass';
 
 export { GET_LAUNCH_DETAILS };
 
@@ -26,11 +28,18 @@ export const CANCEL_TRIP = gql`
   }
 `;
 
+export const GET_BOARDING_PASS = gql`
+  query getBoardingPass {
+    getBoardingPass {
+      status
+      message
+    }
+  }
+`;
+
 interface ActionButtonProps extends Partial<LaunchDetailTypes.LaunchDetails_launch> {}
 
 const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
-
-  const [boardingPass, setBoardingPass] = useState('');
 
   const [mutate, { loading, error }] = useMutation(
     CANCEL_TRIP,
@@ -65,14 +74,12 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
     }
   );
 
+  const [boardingPass, setBoardingPass] = useState('');
+
+  const { data } = useQuery<BoardingPassTypes.GetBoardingPass>(GET_BOARDING_PASS);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>An error occurred</p>;
-
-  function getBoardingPass() {
-    fetch('http://localhost:9999/api/v2/getBoardingPass')
-      .then(response => response.json())
-      .then(data => setBoardingPass(data.url))
-  };
 
   return (
     <div>
@@ -86,7 +93,11 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
       </div><br />
       <div>
         <Button
-          onClick={() => { getBoardingPass() }}
+          onClick={() => {
+            if(data) {
+              setBoardingPass(data.getBoardingPass.message);
+            }
+          }}
           data-testid={'action-button'}
         >
           Get Boarding Pass

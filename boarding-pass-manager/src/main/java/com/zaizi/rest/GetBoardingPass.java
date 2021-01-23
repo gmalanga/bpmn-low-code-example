@@ -53,7 +53,7 @@ public class GetBoardingPass {
 		Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
 
 		if (task != null && task.getName().equals("Resolve failure")) {
-			msg = "{\"status\":\"in progress\", \"url\": \"There was an issue retrieving your boarding pass. You can try later.\"}";
+			msg = "{\"status\":\"Error\", \"url\": \"There was an issue retrieving your boarding pass. You can try later.\"}";
 		} else {
 			msg = getMessage(processInstanceId);
 		}
