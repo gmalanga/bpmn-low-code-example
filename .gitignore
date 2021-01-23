@@ -10,3 +10,8 @@ camunda-db.mv.db
 flowavble-db.mv.db
 flowavble-db.trace.db
 server/node_modules
+store.sqlite
+generate-boarding-pass/target
+boarding-pass-manager/.settings
+boarding-pass-manager/target
+web-app-server/node_modules
