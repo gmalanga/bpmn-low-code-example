@@ -76,7 +76,9 @@ const CancelTripButton: React.FC<ActionButtonProps> = ({ id }) => {
 
   const [boardingPass, setBoardingPass] = useState('');
 
-  const { data } = useQuery<BoardingPassTypes.GetBoardingPass>(GET_BOARDING_PASS);
+  const { data } = useQuery<BoardingPassTypes.GetBoardingPass>(GET_BOARDING_PASS, {
+    fetchPolicy: "cache-and-network"
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>An error occurred</p>;
