@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="get-boardingPass-v3" name="Get Boarding Pass v3" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <serviceTask id="http-01" name="GET boarding pass" flowable:parallelInSameTransaction="true" flowable:type="http">
+      <extensionElements>
+        <flowable:field name="requestMethod">
+          <flowable:string><![CDATA[GET]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="requestUrl">
+          <flowable:string><![CDATA[http://localhost:9090/api/v1/printBoardingPass]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="responseVariableName">
+          <flowable:string><![CDATA[response]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A" sourceRef="startEvent1" targetRef="http-01"></sequenceFlow>
+    <sequenceFlow id="sid-622409B2-66B6-4357-B022-5270FC9CEECF" sourceRef="http-01" targetRef="sid-78832764-15E9-4765-A592-1EBDF715B7F4"></sequenceFlow>
+    <endEvent id="sid-78832764-15E9-4765-A592-1EBDF715B7F4"></endEvent>
+    <userTask id="sid-EB55EB3E-44D8-417E-A384-49C233BBA5AA" name="Resolve failure" flowable:assignee="$INITIATOR" flowable:formFieldValidation="true">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-708A909B-54C6-46DF-B22B-AF3EE0851B97" sourceRef="sid-851E82F9-4A74-45B0-AB50-4C432C8DB97D" targetRef="sid-EB55EB3E-44D8-417E-A384-49C233BBA5AA"></sequenceFlow>
+    <exclusiveGateway id="sid-1A6BB899-2294-458D-87F4-20204BA90885" name="failure fixed?"></exclusiveGateway>
+    <endEvent id="sid-E0AD2BFF-7D73-4CF5-9821-5FA25A20AC0C"></endEvent>
+    <boundaryEvent id="sid-851E82F9-4A74-45B0-AB50-4C432C8DB97D" attachedToRef="http-01">
+      <errorEventDefinition errorRef="myError"></errorEventDefinition>
+    </boundaryEvent>
+    <serviceTask id="sid-DA207975-3385-4A3A-B58B-CBC126533D18" name="Email boarding pass" flowable:type="mail">
+      <extensionElements>
+        <flowable:field name="to">
+          <flowable:string><![CDATA[myUser@test.com]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="subject">
+          <flowable:string><![CDATA[Your boarding pass is ready]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="text">
+          <flowable:expression><![CDATA[Dear user, 
+
+you can find your boarding pass clicking the following link:
+
+${response.url}
+
+Kind regards]]></flowable:expression>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <endEvent id="sid-20C96778-52EA-4F19-9CF3-BB231C328CCF"></endEvent>
+    <sequenceFlow id="sid-88560E5F-2203-4033-B06C-6227F547B780" sourceRef="sid-DA207975-3385-4A3A-B58B-CBC126533D18" targetRef="sid-20C96778-52EA-4F19-9CF3-BB231C328CCF"></sequenceFlow>
+    <sequenceFlow id="sid-25467FBF-98AD-438C-AD6C-CC670D409260" sourceRef="sid-EB55EB3E-44D8-417E-A384-49C233BBA5AA" targetRef="sid-1A6BB899-2294-458D-87F4-20204BA90885"></sequenceFlow>
+    <sequenceFlow id="sid-FEA3F8EA-D082-4E91-8178-922D432F1072" name="cancel" sourceRef="sid-1A6BB899-2294-458D-87F4-20204BA90885" targetRef="sid-E0AD2BFF-7D73-4CF5-9821-5FA25A20AC0C">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${next_action == "cancel"}]]></conditionExpression>
+    </sequenceFlow>
+    <serviceTask id="sid-F80C3E88-55C7-4049-9BF5-9517CFB6A903" name="GET Boarding pass" flowable:parallelInSameTransaction="true" flowable:type="http">
+      <extensionElements>
+        <flowable:field name="requestMethod">
+          <flowable:string><![CDATA[GET]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="requestUrl">
+          <flowable:string><![CDATA[http://localhost:9090/api/v1/printBoardingPass]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="responseVariableName">
+          <flowable:string><![CDATA[response]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-6D981A89-6418-41DE-8C69-39B4C631DE68" sourceRef="sid-F80C3E88-55C7-4049-9BF5-9517CFB6A903" targetRef="sid-DA207975-3385-4A3A-B58B-CBC126533D18"></sequenceFlow>
+    <sequenceFlow id="sid-FBBDA733-24F3-403D-9500-D94B820C9802" name="Yes, retry" sourceRef="sid-1A6BB899-2294-458D-87F4-20204BA90885" targetRef="sid-F80C3E88-55C7-4049-9BF5-9517CFB6A903">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${next_action == "retry"}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_get-boardingPass-v3">
+    <bpmndi:BPMNPlane bpmnElement="get-boardingPass-v3" id="BPMNPlane_get-boardingPass-v3">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="http-01" id="BPMNShape_http-01">
+        <omgdc:Bounds height="80.0" width="100.0" x="204.5" y="185.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-78832764-15E9-4765-A592-1EBDF715B7F4" id="BPMNShape_sid-78832764-15E9-4765-A592-1EBDF715B7F4">
+        <omgdc:Bounds height="28.0" width="28.0" x="546.0" y="211.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-EB55EB3E-44D8-417E-A384-49C233BBA5AA" id="BPMNShape_sid-EB55EB3E-44D8-417E-A384-49C233BBA5AA">
+        <omgdc:Bounds height="80.0" width="100.0" x="345.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-1A6BB899-2294-458D-87F4-20204BA90885" id="BPMNShape_sid-1A6BB899-2294-458D-87F4-20204BA90885">
+        <omgdc:Bounds height="40.0" width="40.0" x="540.0" y="350.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E0AD2BFF-7D73-4CF5-9821-5FA25A20AC0C" id="BPMNShape_sid-E0AD2BFF-7D73-4CF5-9821-5FA25A20AC0C">
+        <omgdc:Bounds height="28.0" width="28.0" x="735.0" y="356.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-851E82F9-4A74-45B0-AB50-4C432C8DB97D" id="BPMNShape_sid-851E82F9-4A74-45B0-AB50-4C432C8DB97D">
+        <omgdc:Bounds height="30.0" width="30.0" x="262.99847112425806" y="250.86690630305753"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-DA207975-3385-4A3A-B58B-CBC126533D18" id="BPMNShape_sid-DA207975-3385-4A3A-B58B-CBC126533D18">
+        <omgdc:Bounds height="80.0" width="100.0" x="810.0" y="435.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-20C96778-52EA-4F19-9CF3-BB231C328CCF" id="BPMNShape_sid-20C96778-52EA-4F19-9CF3-BB231C328CCF">
+        <omgdc:Bounds height="28.0" width="28.0" x="990.0" y="461.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-F80C3E88-55C7-4049-9BF5-9517CFB6A903" id="BPMNShape_sid-F80C3E88-55C7-4049-9BF5-9517CFB6A903">
+        <omgdc:Bounds height="80.0" width="100.0" x="660.0" y="435.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-708A909B-54C6-46DF-B22B-AF3EE0851B97" id="BPMNEdge_sid-708A909B-54C6-46DF-B22B-AF3EE0851B97">
+        <omgdi:waypoint x="277.99847112425806" y="280.81690461823837"></omgdi:waypoint>
+        <omgdi:waypoint x="277.99847112425806" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="345.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-25467FBF-98AD-438C-AD6C-CC670D409260" id="BPMNEdge_sid-25467FBF-98AD-438C-AD6C-CC670D409260">
+        <omgdi:waypoint x="444.95000000000005" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="540.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-FEA3F8EA-D082-4E91-8178-922D432F1072" id="BPMNEdge_sid-FEA3F8EA-D082-4E91-8178-922D432F1072">
+        <omgdi:waypoint x="579.9447250132205" y="370.0"></omgdi:waypoint>
+        <omgdi:waypoint x="735.0" y="370.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-6D981A89-6418-41DE-8C69-39B4C631DE68" id="BPMNEdge_sid-6D981A89-6418-41DE-8C69-39B4C631DE68">
+        <omgdi:waypoint x="759.9499999999999" y="475.0"></omgdi:waypoint>
+        <omgdi:waypoint x="810.0" y="475.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-622409B2-66B6-4357-B022-5270FC9CEECF" id="BPMNEdge_sid-622409B2-66B6-4357-B022-5270FC9CEECF">
+        <omgdi:waypoint x="304.45000000000005" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="546.0" y="225.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A" id="BPMNEdge_sid-D20DDABB-90CB-466C-81D0-6EF37DE6DD2A">
+        <omgdi:waypoint x="129.94999906090126" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="204.5" y="225.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-FBBDA733-24F3-403D-9500-D94B820C9802" id="BPMNEdge_sid-FBBDA733-24F3-403D-9500-D94B820C9802">
+        <omgdi:waypoint x="560.0" y="389.94050903901046"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="475.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="475.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-88560E5F-2203-4033-B06C-6227F547B780" id="BPMNEdge_sid-88560E5F-2203-4033-B06C-6227F547B780">
+        <omgdi:waypoint x="909.9499999999999" y="475.0"></omgdi:waypoint>
+        <omgdi:waypoint x="990.0" y="475.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
