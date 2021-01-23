@@ -1,4 +1,4 @@
-# Apollo tutorial - Client
+# web-app-client
 
 This is the fullstack app for the [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
 
@@ -9,3 +9,5 @@ To run the app, run these commands in a terminal window:
 ```bash
 npm i && npm start
 ```
+
+Connect to http://localhost:3000/

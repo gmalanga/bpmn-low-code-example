@@ -58,6 +58,6 @@ or `mvn clean install` and then run it with `java -jar` command.
 
 Observe the log entry similar to this: 
 
-`Found deployed process: ProcessDefinitionEntity[Sample:1:215245a1-a1e2-11e7-8069-0a0027000006]`
+`Found deployed process: ProcessDefinitionEntity[Sample:1:11a7a7fb-5da1-11eb-a432-c69344384009]`
 
-Then go to http://localhost:8080/ in your browser. Login with `demo:demo`.
+Then go to http://localhost:9090/ in your browser. Login with `demo:demo`.
